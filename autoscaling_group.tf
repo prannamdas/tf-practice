@@ -1,7 +1,7 @@
 resource "aws_launch_configuration" "aws_launch_configuration_raj" {
     name_prefix = "aws_launch_configuration_raj"
     instance_type = var.instance_type
-    image_id = "ami-0a695f0d95cefc163"
+    image_id = var.ami
     user_data = file("user-data.sh")
     security_groups = [aws_security_group.aws_security_group_raj.id]
 
