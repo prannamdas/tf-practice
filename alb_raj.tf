@@ -7,19 +7,19 @@ resource "aws_lb" "aws_lb_raj" {
 }
  
 resource "aws_lb_target_group" "aws_lb_target_group_raj" {
-    name = "aws-lb-target-group-raj"
-    port = "8080" 
+    name     = "aws-lb-target-group-raj"
+    port     = "8080" 
     protocol = "HTTP"
-    vpc_id = aws_vpc.aws_vpc_raj.id
+    vpc_id   = aws_vpc.aws_vpc_raj.id
 }
 
 resource "aws_lb_listener" "aws_lb_listener_raj" {
     load_balancer_arn = aws_lb.aws_lb_raj.arn
-    port = "8080"
-    protocol = "HTTP"
+    port              = "8080"
+    protocol          = "HTTP"
 
     default_action {
-      type = "forward"
+      type             = "forward"
       target_group_arn = aws_lb_target_group.aws_lb_target_group_raj.arn
     }
 }
